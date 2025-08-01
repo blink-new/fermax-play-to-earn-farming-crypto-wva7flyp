@@ -147,7 +147,7 @@ export function FlashSales({ userId, player, onUpdatePlayer }: FlashSalesProps) 
       
       {flashSales.map(sale => {
         const soldPercentage = (sale.currentPurchases / sale.maxPurchases) * 100
-        const canAfford = player && player.fermaCoin >= sale.salePrice
+        const canAfford = Boolean(player && player.fermaCoin >= sale.salePrice)
         const isExpired = timeLeft[sale.id] === 'EXPIRED'
         const isSoldOut = sale.currentPurchases >= sale.maxPurchases
         

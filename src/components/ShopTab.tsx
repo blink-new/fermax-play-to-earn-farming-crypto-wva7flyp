@@ -49,7 +49,7 @@ export function ShopTab({ crops, animals, player, selectedCrop, onSelectCrop, on
         <TabsContent value="seeds">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-4">
             {crops.map((crop) => {
-              const canAfford = player ? player.goldDucats >= crop.basePrice : false
+              const canAfford = Boolean(player && player.goldDucats >= crop.basePrice)
               const isSelected = selectedCrop === crop.id
 
               return (
@@ -130,7 +130,7 @@ export function ShopTab({ crops, animals, player, selectedCrop, onSelectCrop, on
         <TabsContent value="animals">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-4">
             {animals.map((animal) => {
-              const canAfford = player ? player.goldDucats >= animal.cost : false
+              const canAfford = Boolean(player && player.goldDucats >= animal.cost)
               return (
                 <Card key={animal.id} className={`border-border/50 backdrop-blur-sm hover:shadow-xl hover:shadow-accent/10 transition-all ${!canAfford ? 'opacity-60' : ''}`}>
                   <CardContent className="p-4">

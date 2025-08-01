@@ -157,7 +157,7 @@ export function FarmGrid3D({
       }
     }
 
-    const canAfford = player && player.fermaCoin >= expansion.fmcCost
+    const canAfford = Boolean(player && player.fermaCoin >= expansion.fmcCost)
     
     return (
       <div className="h-full flex flex-col items-center justify-center p-2 bg-gray-100 border-2 border-dashed border-gray-300">
